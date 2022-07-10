@@ -1,14 +1,6 @@
-import { Server } from "./lib/server.mjs";
-import { Client } from "./lib/client.mjs";
-import { sleep } from "./lib/utils.mjs";
-
-/**
- * flags
- * init
- * ack
- * noack
- * end
- */
+import { Server } from "./index.mjs";
+import { Client } from "./index";
+import { sleep } from "./index.mjs";
 
 const server = new Server("localhost", 12345);
 
@@ -23,12 +15,3 @@ while (true) {
     await client.sendMessage("world hello!!");
     await sleep(100);
 }
-
-/**
- * send message:
- * split to buffer[]
- * build messages
- * build ack map
- * send messages (set timers for each?)
- * wait for ack
- */
