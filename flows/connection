@@ -1,0 +1,9 @@
+client => udp connection
+send connect packet
+on ack send ack
+
+server
+on connect packet
+generate id (uuid, hashmap key)
+send ack
+on ack => delete from connecting clients
