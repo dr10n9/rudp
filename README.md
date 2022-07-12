@@ -79,3 +79,6 @@ header structure
 flag 1 byte
 transmission id 
 packet number 
+
+TODO  
+add transmission ids check
