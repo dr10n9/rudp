@@ -6,13 +6,18 @@ const server = new Server("localhost", 12345);
 
 server.on('newConnection', client => {
     client.on('message', (data) => {
-        console.log(`handler ${client.address}:${client.port}`, data.toString())
+        console.log(`handler ${client.address}:${client.port}`, data.toString());
+        client.sendMessage('dsa')
     })
 })
 
 const client = new Client("localhost", 12345);
 await client.connect();
-client.sendMessage("Hello, world 111111111111111111111111111111111111111!");
+client.sendMessage("Hello, world");
+client.on('message', data => {
+    console.log(data)
+    console.log(`[client]: ${data.toString()}`)
+})
 // client.client.send(JSON.stringify({
 //     header : {
 //         flag : flags.connect,
